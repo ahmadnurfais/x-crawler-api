@@ -1,0 +1,12 @@
+{
+  "name": "tweet-harvest-webapp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "csv-parser": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}

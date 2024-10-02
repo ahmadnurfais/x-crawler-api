@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Crawl Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 10px; }
+        input[type="submit"] { margin-top: 20px; }
+        #loading { display: none; text-align: center; margin-top: 20px; }
+        .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <h1>X Crawl:</h1>
+    <form id="harvestForm" action="/harvest" method="post">
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword" required>
+        
+        <label for="numTweets">Number of Tweets:</label>
+        <input type="number" id="numTweets" name="numTweets" required>
+        
+        <input type="submit" value="Harvest Tweets">
+    </form>
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Crawling tweets... Please wait.</p>
+    </div>
+    <p>After submitting, you will be redirected to a page displaying the JSON results.</p>
+
+    <script>
+        document.getElementById('harvestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('loading').style.display = 'block';
+            this.submit();
+        });
+    </script>
+</body>
+</html>
