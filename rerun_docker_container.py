@@ -46,14 +46,14 @@ def main(image_name):
     print("Building the Docker image...")
     run_command(f"docker build -t {image_name} .")
     print("Running the Docker container...")
-    # run_command(f"docker run -p 3004:3004 -v /root/Documents/Pandora:/app/data {image_name}")
-    run_command(f"docker run -d -p 3004:3004 -v /home/ahmadnurfais/Programming/Python/x-crawler-api/data:/app/data {image_name}")
+    # run_command(f"docker run -p 3004:3004 -v /root/Documents/Pandora:/app/data --network console-d-network --name {image_name}-container {image_name}")
+    run_command(f"docker run -d -p 3004:3004 -v /home/ahmadnurfais/Programming/Python/x-crawler-api/data:/app/data --network console-d-network --name {image_name}-container {image_name}")
 
 
 if __name__ == "__main__":
     # Need to change this IMAGE_NAME with the name of the running container.
     # How to do that: run "docker ps -a", you will see the list of running containers
-    IMAGE_NAME = "tweet-harvest-webapp"
+    IMAGE_NAME = "x-crawler"
     # Or if you want to enter the name when you run the script, comment the above line and uncomment the below line
     # IMAGE_NAME = input("Enter the name of the container: ")
     main(IMAGE_NAME)

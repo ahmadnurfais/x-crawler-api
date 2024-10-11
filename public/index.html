@@ -17,6 +17,16 @@
 <body>
     <h1>X Crawl:</h1>
     <form id="harvestForm" action="/harvest" method="post">
+        <label for="isLink">isLink:</label>
+        <label>
+            <input type="radio" name="isLink" value="true" required>
+            True
+        </label>
+        <label>
+            <input type="radio" name="isLink" value="false" required>
+            False
+        </label>
+
         <label for="keyword">Keyword:</label>
         <input type="text" id="keyword" name="keyword" required>
         
